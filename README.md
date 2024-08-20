@@ -25,18 +25,18 @@
 - **ORM** : Mybatis
 
 ## 주요기능
-### 식권 구매 : https://github.com/MinHeeJ/KHCommunity/blob/master/src/main/webapp/WEB-INF/views/store/storeDetail.jsp
+### 식권 구매 : https://github.com/judgerTH/KH/blob/master/src/main/webapp/WEB-INF/views/store/storeDetail.jsp
    - 결제 검증
    - 결제API, 카카오공유하기 API, 길찾기 API
      
-### 코드질문 게시판 : https://github.com/MinHeeJ/KHCommunity/blob/master/src/main/webapp/WEB-INF/views/board/askCodeBoardList.jsp
+### 코드질문 게시판 : https://github.com/judgerTH/KH/blob/master/src/main/webapp/WEB-INF/views/board/askCodeBoardList.jsp
    - 로그인 필수
    - 코드 편집기 API를 이용한 코드질문 게시판
     
-### 채팅 : https://github.com/MinHeeJ/KHCommunity/blob/master/src/main/webapp/WEB-INF/views/chat/chatConsultingRequest.jsp
+### 채팅 : https://github.com/MinHeeJ/judgerTH/KH/master/src/main/webapp/WEB-INF/views/chat/chatConsultingRequest.jsp
    - 웹소켓, stomp 이용
      
-### 실시간 알림 : https://github.com/MinHeeJ/KHCommunity/blob/master/src/main/java/com/kh/app/notification/service/NotificationServiceImpl.java
+### 실시간 알림 : https://github.com/judgerTH/KH/blob/master/src/main/java/com/kh/app/notification/service/NotificationServiceImpl.java
    - 게시글 댓글, 대댓글 알림
    - 상담 신청 알림
    - 쪽지 알림
@@ -48,12 +48,12 @@
    - 수료생 게시판 초기화
    - 예비생 커리큘럼 설정
      
-### 우리반게시판 : https://github.com/MinHeeJ/KHCommunity/blob/master/src/main/webapp/WEB-INF/views/admin/myClassBoardList.jsp
+### 우리반게시판 : https://github.com/judgerTH/KH/blob/master/src/main/webapp/WEB-INF/views/admin/myClassBoardList.jsp
    - 재학생만 이용가능
    - 반마다 고유게시판 부여
    - 공지사항 작성(관리자, 강사만 가능)
 
-### 스터디게시판 : https://github.com/MinHeeJ/KHCommunity/blob/master/src/main/webapp/WEB-INF/views/board/studyBoardList.jsp
+### 스터디게시판 : https://github.com/judgerTH/KH/blob/master/src/main/webapp/WEB-INF/views/board/studyBoardList.jsp
    - 로그인 필수
    - 스터디 모집
    - 스터디 지원
@@ -62,19 +62,19 @@
    - (팀장만 가능)스터디원 관리
    - (팀장만 가능)공지사항 작성
 
-### 스케줄러 : https://github.com/MinHeeJ/KHCommunity/blob/master/src/main/webapp/WEB-INF/views/schedule/fullcalendar.jsp
+### 스케줄러 : https://github.com/judgerTH/KH/blob/master/src/main/webapp/WEB-INF/views/schedule/fullcalendar.jsp
    - 스케줄 등록
    - 스케쥴 삭제
    - 캘린더 화면 출력
      
-### 쪽지 : https://github.com/MinHeeJ/KHCommunity/blob/master/src/main/java/com/kh/app/messageBox/controller/MessageContoller.java
+### 쪽지 : https://github.com/judgerTH/KH/blob/master/src/main/java/com/kh/app/messageBox/controller/MessageContoller.java
    - 쪽지보내기
    - 쪽지삭제
    - 쪽지신고
    - 쪽지리스트 출력(쪽지함)
    - 읽음 여부 변경
      
-### 학생 마이페이지 : https://github.com/MinHeeJ/KHCommunity/blob/master/src/main/webapp/WEB-INF/views/member/myPage.jsp
+### 학생 마이페이지 : https://github.com/judgerTH/KH/blob/master/src/main/webapp/WEB-INF/views/member/myPage.jsp
    - 학생 수강정보(반, 과목, 강사, 강의실, D-day)
    - 학생 정보 수정
    - 학생 탈퇴
@@ -84,7 +84,7 @@
    - 학생 인증
    - 상담 내역
      
-### 직원 마이페이지 : https://github.com/MinHeeJ/KHCommunity/blob/master/src/main/webapp/WEB-INF/views/member/employeeMyPage.jsp
+### 직원 마이페이지 : https://github.com/judgerTH/KH/blob/master/src/main/webapp/WEB-INF/views/member/employeeMyPage.jsp
    - 직원 소속 정보(입사일, 근무일수)
    - 강사 (현재 진행중인 수업정보)
    - 직원 정보 수정
@@ -94,11 +94,11 @@
    - 식권 구매 목록
    - 학생 목록 조회
   
-### 취업정보 게시판 : https://github.com/MinHeeJ/KHCommunity/blob/master/src/main/java/com/kh/app/board/service/BoardServiceImpl.java
+### 취업정보 게시판 : https://github.com/judgerTH/KH/blob/master/src/main/java/com/kh/app/board/service/BoardServiceImpl.java
    - 취업정보 조회(크롤링)
    - 취업정보 검색
      
-### 관리자페이지 메인 차트 : https://github.com/MinHeeJ/KHCommunity/blob/master/src/main/webapp/WEB-INF/views/admin/adminMain.jsp
+### 관리자페이지 메인 차트 : https://github.com/judgerTH/KH/blob/master/src/main/webapp/WEB-INF/views/admin/adminMain.jsp
    - 데이터 시각화
    - naver billboard API 이용  
 
@@ -110,10 +110,6 @@
   pw : admin
 - 사용자
 
-  id : eogh
+  id : test
  
-  pw : 1234
-
-=======
-# KH
->>>>>>> 6fd8cab33f5e3b9548d705a0ddde30209a25f2c4
+  pw : test
