@@ -110,6 +110,10 @@
   pw : admin
 - 사용자
 
+
+## https://khtime-775f55e1a539.herokuapp.com/kh/
+- 현재 데이터베이스 사용기간 만료로 인하여 배포는 완료되었지만 정상서비스 불가
+
   id : test
  
   pw : test
