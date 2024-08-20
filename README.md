@@ -44,7 +44,7 @@
    - 회원 승인 알림
    - 휴가 승인 알림
 
-### 우리반게시판 관리 : https://github.com/MinHeeJ/KHCommunity/blob/master/src/main/webapp/WEB-INF/views/admin/myClassBoardList.jsp
+### 우리반게시판 관리 : https://github.com/judgerTH/KH/blob/master/src/main/webapp/WEB-INF/views/admin/myClassBoardList.jsp
    - 수료생 게시판 초기화
    - 예비생 커리큘럼 설정
      
