@@ -11,6 +11,20 @@
 --alter user kh quota unlimited on users;
 --
 --grant connect, resource to kh;
+SELECT owner, table_name 
+FROM all_tables 
+WHERE table_name = 'MEMBER' AND owner = 'KH';
+
+SELECT * 
+FROM dba_tab_privs 
+WHERE table_name = 'MEMBER' AND owner = 'KH' AND grantee = 'KH';
+-- KH 스키마의 MEMBER 테이블에 대한 SELECT 권한을 KH 사용자에게 부여
+GRANT SELECT ON KH.MEMBER TO KH;
+-- KH 사용자에게 부여된 권한 확인
+SELECT * 
+FROM all_tab_privs 
+WHERE table_name = 'MEMBER' AND owner = 'KH' AND grantee = 'KH';
+
 
 
 --=============================================
@@ -1202,10 +1216,6 @@ insert into board values (seq_board_id.nextval, '직원게시판', '소통', 'em
 --delete member where member_id = 'disney1026'; 
 --delete member where member_id = 'test1'; 
 
-delete teacher where teacher_id = 'ehdgus';
-delete from member where member_id = 'admin';
-
-delete from store where store_id = 3;
 
 select * from post_attachment;
 select * from member;
@@ -1241,9 +1251,6 @@ select * from calendar;
 select * from alarm;
 select * from myclass;
 
-delete chat_room where chat_id between 75 and 77;
-
-select * from myclass;
 
 
 INSERT INTO post (post_id, board_id, member_id, title, comment_check,post_like, attach_check, status_check)
@@ -1408,67 +1415,7 @@ delete talker where chat_id between 43 and 74;
 
 update student set approve_request_date = sysdate where student_id = 'xogus';
 
-select * from calendar;
-
-select m.member_name, m.member_phone, m.member_email, m.birthday, s.curriculum_id, c.class_id from member m join student s on m.member_id = s.student_id join curriculum c on s.curriculum_id = c.curriculum_id where c.class_id = '352';
-
-select * from post_comment where post_id =8;
-select * from comment_like;
-
-select * from member;
-select * from post_like;
-
-SELECT
-    v.vacation_id AS vacationId,
-    m.member_name AS memberName,
-    v.vacation_send_date,
-    v.vacation_start_date,
-    v.vacation_end_date,
-    m.birthday,
-    c.curriculum_start_at AS curriculumStartAt,
-    c.curriculum_end_at AS curriculumEndAt,
-    c.curriculum_name AS curriculumName,
-    c.class_id AS classId,
-    v.teacher_id,
-    t.member_name AS teacherName
-FROM
-    student s
-LEFT JOIN
-    member m ON s.student_id = m.member_id
-LEFT JOIN
-    curriculum c ON s.curriculum_id = c.curriculum_id
-LEFT JOIN
-    vacation v ON s.student_id = v.student_id
-LEFT JOIN
-    member t ON v.teacher_id = t.member_id
-WHERE
-    v.vacation_approve_check = '2';
-select * from vacation;
-select * from curriculum;
-
 insert into vacation (vacation_id, student_id, teacher_id, employee_id, vacation_send_date, vacation_approve_check, vacation_start_date, vacation_end_date) values(seq_vacation_id.nextval, 'khendev23', 'ehdgus', null, sysdate, '2', '23/08/27', '23/08/28');
-
-update vacation set vacation_approve_check = '2', employee_id = null;
-
-SELECT *
-FROM report
-WHERE post_id IS NOT NULL
-  AND comment_id IS NULL
-  AND message_id IS NULL;
-
-select count(*)from post_comment  where comment_ref= 230; 
-select * from delete_comment;
-select * from post_comment where comment_id = 243;
-select * from post;
-
-select * from chat_room;
-delete chat_room where chat_id between 119 and 140;
-
-select * from post_comment;
-select * from alarm;
-select * from student;
-select * from post_comment where comment_id = 295;
-update alarm set read_check = 'n' where received_id = 'khendev23';
 
 SELECT *
 FROM (
@@ -1534,148 +1481,19 @@ FOREIGN KEY (study_id)
 REFERENCES study(study_id)
 ON DELETE CASCADE;
 
-select * from study_info;
-select * from study;
-select * from study;
-select * from post order by post_id desc;
-select * from post;
-select * from post_content order by post_id desc;
 update post set tag= '#JAVA' where post_id = 198;
 INSERT INTO post (post_id, board_id, member_id, title)
 VALUES (seq_post_id.NEXTVAL, 44, 'eogh', '자바 빡시게 하자잉');
 INSERT INTO post_content (post_id, board_id, content)
 VALUES (197, 44, '저희스터디느 ?저희스터디느 ?저희스터디느 ?저희스터디느 ?저희스터디느 ?저희스터디느 ?저희스터디느 ?저희스터디느 ?저희스터디느 ?저희스터디느 ?');
 198	44	eogh	자바 빡시게 하자잉	23/08/30 02:10:35				#JAVA
-select * from post order by post_id desc;
-SELECT p.post_id, p.board_id,p.member_id,p.tag ,s.study_name ,s.study_people,s.member_count, s.study_created_at, s.study_end_at
-FROM post p
-JOIN study s ON p.board_id = s.board_id;
-SELECT p.post_id, p.board_id,p.member_id,p.tag ,s.study_name ,s.study_people,s.member_count, s.study_created_at, s.study_end_at FROM post p JOIN study s ON p.board_id = s.board_id;
-select s.*   from study s;
-select * from board;
+
 update board set board_name = '스터디전용' where board_id = 43;
-select * from post order by post_id desc;
-select * from post_content order by post_id desc;
-select * from board order by board_id desc;
-select * from study order by study_id desc;
-SELECT p.post_id, p.board_id,p.member_id,p.tag ,s.study_name ,s.study_people,s.member_count, s.study_created_at, s.study_end_at FROM post p JOIN study s ON p.board_id = s.board_id
-;
-select * from study;
-select * from post where member_id ='eogh' and title = (select study_name from study where study_id =6);
-select 
- p.*
- from 
-    post p
-where
-    p.title = (select study_name from study;
-    
-    select * from post order by post_id desc;
-    
-    alter table study add post_id number;
-    ALTER TABLE study drop CONSTRAINT FK_study_post_id;
-select * from post order by 1 desc;
-select * from study;
-select * from post where board_id = 6;
+
 update study set post_id = 203 where study_name='자바 빡시게하자';
 
-	select 
-  		p.post_id,
-  		p.member_id,
-	    p.title,
-	    p.post_created_at,
-	    p.tag,
-	    (select count (*) from post_like pl where pl.post_id = p.post_id) post_like,
-	    c.content,
-	    (select count(*) from post_comment pc where pc.post_id = p.post_id) comment_count,
-  		p.board_id,
-  		p.anonymous_check,
-        m.member_name
-	from
-	    post p join post_content c
-	    	on p.post_id = c.post_id
-        left join member m
-            on p.member_id = m.member_id
-	where
-	    p.post_id=210;
-        
-        select * from post_content where post_id=210;
-        select * from post order by 1 desc;
-        delete from study where post_id is null ;
-        select * from study_info;
-        delete from study_info;
-        delete from study;
-        select * from study;
-        select * from post order by 1 desc;
-        
-        
-SELECT
-    p.post_id,
-    p.member_id,
-    p.title,
-    p.post_created_at,
-    p.tag,
-    c.content,
-    p.board_id,
-    m.member_name,
-    s.study_people,
-    s.member_count
-FROM
-    post p
-JOIN
-    post_content c ON p.post_id = c.post_id
-LEFT JOIN
-    member m ON p.member_id = m.member_id
-JOIN
-    study s ON p.post_id = s.post_id
-WHERE
-    p.post_id = 216;
-    select * from study;
-    select * from study_info;
-    delete study_info;
-  select * from study_info;
-  select * from alarm; 
-  select * from message_box;
-  
-  select * from study where study_id in ( select study_id from study_info where member_id ='eogh' and APPLICATION_CHECK=1);
-    
-  
-  select study_id from study_info where member_id ='eogh' and APPLICATION_CHECK=1;
-  
   update study_info set APPLICATION_CHECK = 1 where member_id = 'eogh';
-  
-  select * from study where board_id =59;
-  select * from post where board_id = 59;
-  select * from study;
-  select * from study_info;
-  
-  select * from post where board_id = 6 order by 1 desc;
-  select * from post order by 2 desc;
-  select * from study order by 1 desc;
-  select * from study_info order by 1 desc;
-  select * from board order by 1 desc;
-  
-  select 
-		    s.member_id reader_id,
-		    si.*
-		from 
-			study s join study_info si
-			on
-			s.study_id = si.study_id
-		where 
-			s.study_id=26 and si.application_check = 1
-        order by
-            4 desc;
-  select * from report;
 
-  select * from alarm;
-
-insert into member
-
-  select * from vacation;
-select * from post;
-select * from employee;
-select * from authority;
-select * from board order by 1;
 update board set board_id = 10 where board_id=11;
 TRUNCATE TABLE board CASCADE CONSTRAINTS;
 
@@ -1693,7 +1511,7 @@ TRUNCATE TABLE board CASCADE CONSTRAINTS;
 --truncate table chat_message;
 --truncate table chat_room;
 
-select * from board;
+select * from member;
 insert into KH.BOARD (BOARD_ID,BOARD_NAME,BOARD_CATEGORY,BOARD_LINK) values (seq_board_id.nextval,'자유게시판','소통','freeBoardList');
 Insert into KH.BOARD (BOARD_ID,BOARD_NAME,BOARD_CATEGORY,BOARD_LINK) values (seq_board_id.nextval,'장터게시판','소통','marketBoardList');
 Insert into KH.BOARD (BOARD_ID,BOARD_NAME,BOARD_CATEGORY,BOARD_LINK) values (seq_board_id.nextval,'오늘 뭐 먹지?','소통','todayFoodBoardList');
@@ -1704,26 +1522,3 @@ Insert into KH.BOARD (BOARD_ID,BOARD_NAME,BOARD_CATEGORY,BOARD_LINK) values (seq
 Insert into KH.BOARD (BOARD_ID,BOARD_NAME,BOARD_CATEGORY,BOARD_LINK) values (seq_board_id.nextval,'예비생게시판','소통','preStudentBoardList');
 Insert into KH.BOARD (BOARD_ID,BOARD_NAME,BOARD_CATEGORY,BOARD_LINK) values (seq_board_id.nextval,'직원게시판','소통','employeeBoardList');
 Insert into KH.BOARD (BOARD_ID,BOARD_NAME,BOARD_CATEGORY,BOARD_LINK) values (seq_board_id.nextval,'공지사항게시판','소통','noticeBoardList');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
